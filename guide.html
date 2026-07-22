@@ -207,7 +207,7 @@
         <h3>Run the agent — it builds <code>src/pricing/engine.ts</code></h3>
         <p>Run the agent through the wrapper (details below). It uses your harness files, writes only
           that one file, and <b>records the run's cost to <code>COST.txt</code> automatically.</b></p>
-        <div class="cmd">node agent-run.mjs "build src/pricing/engine.ts per SPEC.md and my harness"</div>
+        <div class="cmd">node agent-run.mjs --model gpt-5-mini</div>
       </div></div>
       <div class="step"><div class="n">5</div><div>
         <h3>Iterate — and stay lean</h3>
@@ -231,7 +231,11 @@
       <p>The Copilot CLI prints the <b>exact credits</b> it spent after every run. We ship a small
         wrapper that runs it (using your harness files automatically) and <b>adds each run's credits
         to <code>COST.txt</code> for you</b> — nothing to read off a screen.</p>
-      <div class="costfile" style="overflow-x:auto;white-space:nowrap;margin:14px 0 0">node agent-run.mjs "build src/pricing/engine.ts per SPEC.md and my harness"</div>
+      <p><b>Pick your model</b> with <code>--model &lt;name&gt;</code>. To see your available models, run
+        <code>copilot</code> then <code>/model</code>. Cheaper models cost fewer credits — e.g.
+        <code>gpt-5-mini</code> is far cheaper than <code>gpt-5.3-codex</code> (the strong default). The
+        game is whether your harness can carry the cheapest model that still passes the gate.</p>
+      <div class="costfile" style="overflow-x:auto;white-space:nowrap;margin:14px 0 0">node agent-run.mjs --model gpt-5-mini</div>
       <div class="cost-demo">
         <div class="chatbar"><span class="ctx">AI Credits 9.25</span><span class="type">printed after every run</span></div>
         <span class="arrow">→</span>
